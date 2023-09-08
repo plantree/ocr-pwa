@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="h-16 border-t border-slate-900/10 text-sm text-center flex flex-col justify-center"
+    class="flex flex-col h-16 border-t border-slate-900/10 text-sm text-center justify-center"
   >
     <p>Released under the MIT License.</p>
     <p class="copyright">

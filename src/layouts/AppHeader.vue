@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, defineEmits } from 'vue';
 
 import { Locale } from '@/enums';
 import Favicon from '@/components/icons/Favicon.vue';
@@ -9,6 +9,7 @@ import Github from '@/components/icons/Github.vue';
 const VERSION: string = __VERSION__ as string;
 
 // Change theme
+const emit = defineEmits(['update-theme']);
 const isDark = ref(false);
 const changeTheme = (theme: 'light' | 'dark') => {
   if (theme === 'dark') {
@@ -16,6 +17,7 @@ const changeTheme = (theme: 'light' | 'dark') => {
   } else {
     isDark.value = false;
   }
+  emit('update-theme', isDark.value);
   document.documentElement.setAttribute('data-theme', theme);
 };
 

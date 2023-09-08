@@ -21,3 +21,5 @@ Copyright (c) 2023-present, Plantree
 - https://daisyui.com/docs/install/
 - https://vitejs.dev/
 - https://vuejs.org/
+- https://github.com/tesseract-ocr/tessdoc
+- https://vitest.dev/
