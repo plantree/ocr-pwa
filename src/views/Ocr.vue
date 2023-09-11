@@ -6,9 +6,11 @@ import useClipboard from 'vue-clipboard3';
 import { recognize } from '@/ocr/tesseract';
 import { cleanText } from '@/utils/strings';
 
-enum LoadStatus {
+enum Status {
   NotStart,
   Loading,
+  Loaded,
+  Recognizing,
   Success,
   Fail
 }
@@ -16,22 +18,34 @@ enum LoadStatus {
 const internalFileList = ref([]);
 const fileList = ref<UploadFileInfo[]>();
 const previewSrc = ref('');
-// load status of preview image
-const loadStatus = ref<LoadStatus>(LoadStatus.NotStart);
+// status of load image and recognize
+const progressStatus = ref<Status>(Status.NotStart);
+
+const isShowModal = ref(false);
+
 const recognizeText = ref('');
 const prettifiedText = ref('');
 
+async function tesseractRecognize(url: string) {
+  progressStatus.value = Status.Recognizing;
+  try {
+    const str = await recognize(url);
+    progressStatus.value = Status.Success;
+    recognizeText.value = str;
+    prettifiedText.value = str;
+  } catch (e) {
+    progressStatus.value = Status.Fail;
+    console.error(e);
+  }
+}
+
 async function handleFileListChange() {
   const newFile = fileList.value?.[fileList.value.length - 1] as UploadFileInfo;
-  console.log(newFile);
   const url = URL.createObjectURL(newFile.file!);
-  console.log(url);
 
   previewSrc.value = url;
-  loadStatus.value = LoadStatus.Loading;
-  const str = await recognize(url);
-  recognizeText.value = str;
-  prettifiedText.value = str;
+  progressStatus.value = Status.Loading;
+  isShowModal.value = true;
 }
 
 function handleDrop(event) {
@@ -86,15 +100,22 @@ async function handlePaste(e) {
       }
       const url = URL.createObjectURL(blob);
       previewSrc.value = url;
-      loadStatus.value = LoadStatus.Loading;
-      const str = await recognize(url);
-      recognizeText.value = str;
-      prettifiedText.value = str;
+      progressStatus.value = Status.Loading;
+      isShowModal.value = true;
     }
   } catch (e) {
     console.error(e);
     message.error('Failed to paste');
   }
+}
+
+async function loadSuccess() {
+  progressStatus.value = Status.Loaded;
+  await tesseractRecognize(previewSrc.value);
+}
+
+function loadFailed() {
+  progressStatus.value = Status.Fail;
 }
 </script>
 
@@ -130,13 +151,40 @@ async function handlePaste(e) {
           :src="previewSrc"
           :object-fit="'contain'"
           :img-props="{ id: 'previewImg' }"
-          @load="loadStatus = LoadStatus.Success"
-          @error="loadStatus = LoadStatus.Fail"
+          @load="loadSuccess()"
+          @error="loadFailed()"
         />
       </div>
-      <n-modal :show="loadStatus === LoadStatus.Loading">
-        <n-card class="w-1/2" size="huge" :bordered="false" role="dialog" aria-modal="true">
-          <n-spin size="large" class="flex"></n-spin>
+
+      <n-modal v-model:show="isShowModal">
+        <n-card
+          class="w-1/2"
+          size="huge"
+          :bordered="false"
+          preset="dialog"
+          aria-modal="true"
+          :loading="true"
+        >
+          <ul class="steps w-full">
+            <li
+              class="step"
+              :class="progressStatus >= Status.Loaded ? 'step-success' : 'step-error'"
+            >
+              加载图片
+            </li>
+            <li
+              class="step"
+              :class="
+                progressStatus < Status.Success
+                  ? ''
+                  : progressStatus === Status.Success
+                  ? 'step-success'
+                  : 'step-error'
+              "
+            >
+              识别文字
+            </li>
+          </ul>
         </n-card>
       </n-modal>
     </div>
@@ -157,7 +205,7 @@ async function handlePaste(e) {
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { NUpload, NUploadDragger, NIcon, NText, NP, NImage, NModal, NCard, NSpin } from 'naive-ui';
+import { NUpload, NUploadDragger, NIcon, NText, NP, NImage, NModal, NCard } from 'naive-ui';
 import { ArchiveOutline as ArchiveIcon } from '@vicons/ionicons5';
 
 export default defineComponent({
@@ -170,7 +218,6 @@ export default defineComponent({
     NImage,
     NModal,
     NCard,
-    NSpin,
     ArchiveIcon
   }
 });
