@@ -9,7 +9,7 @@ function cleanText(inputText: string): string {
     }
   });
   const cleanedText = brr.join('\n');
-  return cleanedText;
+  return cleanedText.replace(/ /g, '');
 }
 
 export { cleanText };

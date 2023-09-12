@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { UploadFileInfo, useMessage } from 'naive-ui';
 import useClipboard from 'vue-clipboard3';
 
-import { recognize } from '@/ocr/tesseract';
+import TesseractEngine from '@/ocr/tesseract';
 import { cleanText } from '@/utils/strings';
 
 enum Status {
@@ -20,16 +20,18 @@ const fileList = ref<UploadFileInfo[]>();
 const previewSrc = ref('');
 // status of load image and recognize
 const progressStatus = ref<Status>(Status.NotStart);
-
 const isShowModal = ref(false);
 
 const recognizeText = ref('');
 const prettifiedText = ref('');
 
+/* OCR engine */
+const tesseract = new TesseractEngine();
+
 async function tesseractRecognize(url: string) {
   progressStatus.value = Status.Recognizing;
   try {
-    const str = await recognize(url);
+    const str = await tesseract.recognize(url);
     progressStatus.value = Status.Success;
     recognizeText.value = str;
     prettifiedText.value = str;
@@ -117,6 +119,11 @@ async function loadSuccess() {
 function loadFailed() {
   progressStatus.value = Status.Fail;
 }
+
+/* hook functions */
+onMounted(async () => {
+  await tesseract.init();
+});
 </script>
 
 <template>
@@ -190,6 +197,11 @@ function loadFailed() {
     </div>
 
     <div class="flex flex-col gap-4 md:w-2/5">
+      <select class="select select-bordered w-full max-w-xs">
+        <option disabled selected>OCR引擎</option>
+        <option>Tesseract (默认)</option>
+        <option disabled>(待扩展)</option>
+      </select>
       <h2 class="title capitalize text-lg font-bold">OCR result</h2>
       <div class="flex flex-grow border-2 rounded overflow-y-auto h-64">
         <pre class="whitespace-pre-line font-sans">{{ prettifiedText }}</pre>
