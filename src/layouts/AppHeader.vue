@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { onMounted, ref, defineEmits } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import { Locale } from '@/enums';
 import Favicon from '@/components/icons/Favicon.vue';

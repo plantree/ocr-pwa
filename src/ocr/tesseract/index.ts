@@ -1,4 +1,4 @@
-import Engine from './engine';
+import Engine from '../engine';
 import Tesseract, { createWorker } from 'tesseract.js';
 
 class TesseractEngine extends Engine {

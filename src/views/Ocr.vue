@@ -5,6 +5,9 @@ import useClipboard from 'vue-clipboard3';
 
 import TesseractEngine from '@/ocr/tesseract';
 import { cleanText } from '@/utils/strings';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 enum Status {
   NotStart,
@@ -142,12 +145,12 @@ onMounted(async () => {
               <archive-icon />
             </n-icon>
           </div>
-          <n-text class="text-md font-bold"> 点击或者拖动图片到该区域来上传 </n-text>
-          <n-p depth="3"> 请不要上传敏感数据，比如你的银行卡号和密码，信用卡号有效期和安全码 </n-p>
+          <n-text class="text-md font-bold capitalize">{{ t('ocr.upload.title') }}</n-text>
+          <n-p depth="3">{{ t('ocr.upload.subTitle') }}</n-p>
         </n-upload-dragger>
       </n-upload>
 
-      <h2 class="title capitalize text-lg font-bold">preview</h2>
+      <h2 class="title capitalize text-lg font-bold">{{ t('ocr.preview') }}</h2>
       <div>
         <kbd class="kbd">ctrl</kbd>
         +
@@ -177,7 +180,7 @@ onMounted(async () => {
               class="step"
               :class="progressStatus >= Status.Loaded ? 'step-success' : 'step-error'"
             >
-              加载图片
+              {{ t('ocr.status.loading') }}
             </li>
             <li
               class="step"
@@ -189,7 +192,7 @@ onMounted(async () => {
                   : 'step-error'
               "
             >
-              识别文字
+              {{ t('ocr.status.recognizing') }}
             </li>
           </ul>
         </n-card>
@@ -198,18 +201,24 @@ onMounted(async () => {
 
     <div class="flex flex-col gap-4 md:w-2/5">
       <select class="select select-bordered w-full max-w-xs">
-        <option disabled selected>OCR引擎</option>
-        <option>Tesseract (默认)</option>
-        <option disabled>(待扩展)</option>
+        <option disabled selected>{{ t('ocr.engineOptions[0]') }}</option>
+        <option>{{ t('ocr.engineOptions[1]') }}</option>
+        <option disabled>{{ t('ocr.engineOptions[2]') }}</option>
       </select>
-      <h2 class="title capitalize text-lg font-bold">OCR result</h2>
+      <h2 class="title capitalize text-lg font-bold">{{ t('ocr.result') }}</h2>
       <div class="flex flex-grow border-2 rounded overflow-y-auto h-64">
-        <pre class="whitespace-pre-line font-sans">{{ prettifiedText }}</pre>
+        <textarea
+          v-model="prettifiedText"
+          cols="0"
+          class="w-full whitespace-pre-line font-sans"
+        ></textarea>
       </div>
       <div class="flex flex-row gap-2">
-        <button class="btn normal-case" @click="copyText">Copy</button>
-        <button class="btn normal-case" @click="prettifyText">Prettify</button>
-        <button class="btn normal-case" @click="resetText">Raw</button>
+        <button class="btn normal-case" @click="copyText">{{ t('ocr.operations.copy') }}</button>
+        <button class="btn normal-case" @click="prettifyText">
+          {{ t('ocr.operations.prettify') }}
+        </button>
+        <button class="btn normal-case" @click="resetText">{{ t('ocr.operations.raw') }}</button>
       </div>
     </div>
   </div>
@@ -234,3 +243,4 @@ export default defineComponent({
   }
 });
 </script>
+@/ocr/tesseract/tesseract

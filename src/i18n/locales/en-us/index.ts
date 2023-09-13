@@ -2,5 +2,47 @@ export default {
   header: {
     theme: 'theme',
     language: 'language'
+  },
+  home: {
+    title: 'An Easy Tool For OCR',
+    subTitle: 'Extracting Text From Images Offline',
+    enter: 'Start OCR',
+    guide: 'How to use?',
+    features: [
+      {
+        title: 'Easy to Use',
+        description: 'Upload or paste an image, and you will get the text'
+      },
+      {
+        title: 'Focus on Privacy',
+        description: 'No network required, all OCR operations are performed locally'
+      },
+      {
+        title: 'Extendable Engines',
+        description: 'Support Tesseract.js, etc.'
+      },
+      {
+        title: 'Support Multiple Languages',
+        description: 'Support English, Chinese, etc.'
+      }
+    ]
+  },
+  ocr: {
+    upload: {
+      title: 'Click or drag',
+      subTitle: 'Support jpg, png, bmp, tiff, webp, etc.'
+    },
+    preview: 'preview',
+    status: {
+      loading: 'Loading',
+      recognizing: 'Recognizing'
+    },
+    engineOptions: ['OCR Engines', 'Tesseract.js (default)', '(Extendable...)'],
+    result: 'OCR result',
+    operations: {
+      copy: 'Copy',
+      prettify: 'Prettify',
+      raw: 'Raw'
+    }
   }
 };
