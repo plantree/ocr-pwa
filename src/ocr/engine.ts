@@ -5,9 +5,9 @@ abstract class Engine {
     this.name = name;
   }
 
-  async init(): Promise<void>;
+  abstract init(): Promise<void>;
 
-  async recognize(imageUrl: string): Promise<string>;
+  abstract recognize(imageUrl: string): Promise<string>;
 }
 
 export default Engine;
