@@ -7,6 +7,8 @@ import TesseractEngine from '@/ocr/tesseract';
 import { cleanText } from '@/utils/strings';
 import { useI18n } from 'vue-i18n';
 
+const DEFAULT_TIMEOUT = 5;
+
 const { t } = useI18n();
 
 enum Status {
@@ -24,6 +26,7 @@ const previewSrc = ref('');
 // status of load image and recognize
 const progressStatus = ref<Status>(Status.NotStart);
 const isShowModal = ref(false);
+const modalTimeout = ref(DEFAULT_TIMEOUT);
 
 const recognizeText = ref('');
 const prettifiedText = ref('');
@@ -41,6 +44,17 @@ async function tesseractRecognize(url: string) {
   } catch (e) {
     progressStatus.value = Status.Fail;
     console.error(e);
+  }
+  countdown();
+}
+
+function countdown() {
+  if (modalTimeout.value > 0) {
+    modalTimeout.value--;
+    setTimeout(countdown, 1000);
+  } else {
+    isShowModal.value = false;
+    modalTimeout.value = DEFAULT_TIMEOUT;
   }
 }
 
@@ -173,7 +187,12 @@ onMounted(async () => {
           :bordered="false"
           preset="dialog"
           aria-modal="true"
-          :loading="true"
+          :closable="true"
+          :on-close="
+            () => {
+              isShowModal = false;
+            }
+          "
         >
           <ul class="steps w-full">
             <li
@@ -195,6 +214,7 @@ onMounted(async () => {
               {{ t('ocr.status.recognizing') }}
             </li>
           </ul>
+          <p class="mt-4 text-right">{{ modalTimeout }} (s)</p>
         </n-card>
       </n-modal>
     </div>

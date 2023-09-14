@@ -45,8 +45,10 @@
     "typescript": "^5.0.2",
     "vfonts": "^0.0.3",
     "vite": "^4.4.5",
+    "vite-plugin-pwa": "^0.16.5",
     "vitest": "^0.34.3",
     "vue-clipboard3": "^2.0.0",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^1.8.5",
+    "workbox-window": "^7.0.0"
   }
 }
