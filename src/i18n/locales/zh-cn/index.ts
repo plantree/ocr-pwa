@@ -44,5 +44,17 @@ export default {
       prettify: '美化',
       raw: '原始结果'
     }
+  },
+  serviceWorker: {
+    prompt: {
+      update: {
+        title: '新版本可用!',
+        content: '点击按钮升级版本',
+        button: '升级'
+      },
+      offline: {
+        title: '离线模式可用!'
+      }
+    }
   }
 };

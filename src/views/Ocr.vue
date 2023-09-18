@@ -7,7 +7,7 @@ import TesseractEngine from '@/ocr/tesseract';
 import { cleanText } from '@/utils/strings';
 import { useI18n } from 'vue-i18n';
 
-const DEFAULT_TIMEOUT = 5;
+import { DEFAULT_TIMEOUT } from '@/constants';
 
 const { t } = useI18n();
 
@@ -263,4 +263,3 @@ export default defineComponent({
   }
 });
 </script>
-@/ocr/tesseract/tesseract

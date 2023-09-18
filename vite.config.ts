@@ -9,9 +9,13 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       VitePWA({
-        registerType: 'autoUpdate',
+        injectRegister: 'script',
+        registerType: 'prompt',
         devOptions: {
           enabled: true
+        },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,ico,png,svg}']
         },
         includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
         manifest: {

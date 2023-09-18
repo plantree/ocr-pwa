@@ -10,15 +10,19 @@
       </main>
       <AppFooter />
     </div>
+    <n-notification-provider :max="1" :placement="'bottom-right'">
+      <ReloadPrompt />
+    </n-notification-provider>
   </n-config-provider>
 </template>
 
 <script lang="ts">
 import AppHeader from './layouts/AppHeader.vue';
 import AppFooter from './layouts/AppFooter.vue';
+import ReloadPrompt from './components/ReloadPrompt.vue';
 
 import { defineComponent, ref } from 'vue';
-import { NMessageProvider, NConfigProvider, darkTheme } from 'naive-ui';
+import { NMessageProvider, NConfigProvider, darkTheme, NNotificationProvider } from 'naive-ui';
 import type { GlobalTheme } from 'naive-ui';
 
 export default defineComponent({
@@ -26,7 +30,9 @@ export default defineComponent({
     AppHeader,
     AppFooter,
     NMessageProvider,
-    NConfigProvider
+    NConfigProvider,
+    NNotificationProvider,
+    ReloadPrompt
   },
   setup() {
     const theme = ref<GlobalTheme | null>(null);

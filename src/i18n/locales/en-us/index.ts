@@ -44,5 +44,17 @@ export default {
       prettify: 'Prettify',
       raw: 'Raw'
     }
+  },
+  serviceWorker: {
+    prompt: {
+      update: {
+        title: 'New version available',
+        content: 'Click on refresh button to update.',
+        button: 'Refresh'
+      },
+      offline: {
+        title: 'Offline mode is ready!'
+      }
+    }
   }
 };
