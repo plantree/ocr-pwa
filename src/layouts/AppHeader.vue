@@ -100,6 +100,7 @@ onMounted(() => {
             </svg>
           </div>
           <div
+            tabindex="0"
             class="dropdown-content bg-base-200 text-base-content rounded-box top-px w-32 overflow-y-auto shadow mt-16"
           >
             <div class="grid grid-cols-1 gap-3 p-3" tabindex="0">
@@ -218,6 +219,7 @@ onMounted(() => {
             </svg>
           </div>
           <div
+            tabindex="0"
             class="dropdown-content bg-base-200 text-base-content rounded-box top-px mt-16 w-56 overflow-y-auto shadow"
           >
             <ul class="menu gap-1" tabindex="0">

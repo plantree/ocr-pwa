@@ -33,6 +33,7 @@ export default {
       subTitle: '支持 jpg, png, bmp, tiff, webp, 等.'
     },
     preview: '预览',
+    kbd: '(从剪切板读取)',
     status: {
       loading: '加载',
       recognizing: '识别'
@@ -48,12 +49,13 @@ export default {
   serviceWorker: {
     prompt: {
       update: {
-        title: '新版本可用!',
+        title: '新版本可用！',
         content: '点击按钮升级版本',
         button: '升级'
       },
       offline: {
-        title: '离线模式可用!'
+        title: '离线模式可用！',
+        button: '知道啦'
       }
     }
   }

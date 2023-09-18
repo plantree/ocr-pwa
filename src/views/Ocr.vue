@@ -169,6 +169,7 @@ onMounted(async () => {
         <kbd class="kbd">ctrl</kbd>
         +
         <kbd class="kbd">v</kbd>
+        <span class="ml-2">{{ t('ocr.kbd') }}</span>
       </div>
       <div class="border-2 rounded border-slate-200 p-2 h-48">
         <n-image

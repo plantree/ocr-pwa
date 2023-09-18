@@ -30,25 +30,25 @@ const openGuide = () => {
     </div>
 
     <div class="flex flex-col px-8 gap-4 md:flex-row md:px-32">
-      <div class="card bg-base-200">
+      <div class="flex-1 card bg-base-200">
         <div class="card-body">
           <h2 class="card-title text-base">{{ t('home.features[0].title') }}</h2>
           <p>{{ t('home.features[0].description') }}</p>
         </div>
       </div>
-      <div class="card bg-base-200">
+      <div class="flex-1 card bg-base-200">
         <div class="card-body">
           <h2 class="card-title text-base">{{ t('home.features[1].title') }}</h2>
           <p>{{ t('home.features[1].description') }}</p>
         </div>
       </div>
-      <div class="card bg-base-200">
+      <div class="flex-1 card bg-base-200">
         <div class="card-body">
           <h2 class="card-title text-base">{{ t('home.features[2].title') }}</h2>
           <p>{{ t('home.features[2].description') }}</p>
         </div>
       </div>
-      <div class="card bg-base-200">
+      <div class="flex-1 card bg-base-200">
         <div class="card-body">
           <h2 class="card-title text-base">{{ t('home.features[3].title') }}</h2>
           <p>{{ t('home.features[3].description') }}</p>

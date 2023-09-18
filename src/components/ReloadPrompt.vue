@@ -58,6 +58,20 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
     offlineReady.value = true;
     notification.info({
       title: () => t('serviceWorker.prompt.offline.title'),
+      action: () =>
+        h(
+          NButton,
+          {
+            text: true,
+            type: 'primary',
+            onClick: () => {
+              updateServiceWorker();
+            }
+          },
+          {
+            default: () => t('serviceWorker.prompt.offline.button')
+          }
+        ),
       onClose: () => {
         close();
       }

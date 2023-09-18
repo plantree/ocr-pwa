@@ -33,6 +33,7 @@ export default {
       subTitle: 'Support jpg, png, bmp, tiff, webp, etc.'
     },
     preview: 'preview',
+    kbd: '(Read image from cliboard)',
     status: {
       loading: 'Loading',
       recognizing: 'Recognizing'
@@ -53,7 +54,8 @@ export default {
         button: 'Refresh'
       },
       offline: {
-        title: 'Offline mode is ready!'
+        title: 'Offline mode is ready!',
+        button: 'Got it'
       }
     }
   }
