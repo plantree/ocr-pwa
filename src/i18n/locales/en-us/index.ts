@@ -44,6 +44,18 @@ export default {
       copy: 'Copy',
       prettify: 'Prettify',
       raw: 'Raw'
+    },
+    modal: {
+      copy: {
+        success: 'Copied to clipboard',
+        failed: 'Failed to copy'
+      },
+      prettify: {
+        success: 'Prettified'
+      },
+      raw: {
+        success: 'Reset to raw'
+      }
     }
   },
   serviceWorker: {

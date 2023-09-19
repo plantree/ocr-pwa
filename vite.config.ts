@@ -21,8 +21,8 @@ export default defineConfig(() => {
         manifest: {
           name: 'We OCR',
           short_name: 'WeOCR',
-          description: 'an easy offline tool for OCR',
-          theme_color: '#fff',
+          description: 'An easy offline tool for OCR',
+          theme_color: '#ffffff',
           icons: [
             {
               src: 'pwa-192x192.png',

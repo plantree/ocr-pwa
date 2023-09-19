@@ -65,7 +65,7 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
             text: true,
             type: 'primary',
             onClick: () => {
-              updateServiceWorker();
+              close();
             }
           },
           {

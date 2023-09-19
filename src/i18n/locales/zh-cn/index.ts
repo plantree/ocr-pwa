@@ -44,6 +44,18 @@ export default {
       copy: '拷贝',
       prettify: '美化',
       raw: '原始结果'
+    },
+    modal: {
+      copy: {
+        success: '拷贝到剪切板',
+        failed: '拷贝失败'
+      },
+      prettify: {
+        success: '美化成功'
+      },
+      raw: {
+        success: '恢复到原始结果'
+      }
     }
   },
   serviceWorker: {

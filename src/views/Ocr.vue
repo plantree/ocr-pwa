@@ -81,21 +81,21 @@ const message = useMessage();
 async function copyText() {
   try {
     await toClipboard(prettifiedText.value);
-    message.success('Copied to clipboard');
+    message.success(t('ocr.modal.copy.success'));
   } catch (e) {
     console.error(e);
-    message.error('Failed to copy');
+    message.error(t('ocr.modal.copy.failed'));
   }
 }
 
 function prettifyText() {
   prettifiedText.value = cleanText(recognizeText.value);
-  message.success('Prettified');
+  message.success(t('ocr.modal.prettify.success'));
 }
 
 function resetText() {
   prettifiedText.value = recognizeText.value;
-  message.success('Reset to raw');
+  message.success(t('ocr.modal.raw.success'));
 }
 
 // ref: https://web.dev/patterns/clipboard/paste-images/
@@ -183,7 +183,7 @@ onMounted(async () => {
 
       <n-modal v-model:show="isShowModal">
         <n-card
-          class="w-1/2"
+          class="w-4/5 md:w-1/2"
           size="huge"
           :bordered="false"
           preset="dialog"
