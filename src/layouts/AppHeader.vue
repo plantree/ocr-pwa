@@ -72,7 +72,7 @@ onMounted(() => {
       </div>
       <div class="flex-0">
         <div title="Change Theme" class="dropdown dropdown-end">
-          <div tabindex="0" class="btn normal-case btn-ghost">
+          <label tabindex="0" class="btn normal-case btn-ghost">
             <svg
               width="20"
               height="20"
@@ -98,9 +98,8 @@ onMounted(() => {
             >
               <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
             </svg>
-          </div>
+          </label>
           <div
-            tabindex="0"
             class="dropdown-content bg-base-200 text-base-content rounded-box top-px w-32 overflow-y-auto shadow mt-16"
           >
             <div class="grid grid-cols-1 gap-3 p-3" tabindex="0">
@@ -193,7 +192,7 @@ onMounted(() => {
           </div>
         </div>
         <div title="Change Language" class="dropdown dropdown-end">
-          <div tabindex="0" class="btn btn-ghost normal-case" data-svelte-h="svelte-16sc62l">
+          <label tabindex="0" class="btn btn-ghost normal-case" data-svelte-h="svelte-16sc62l">
             <svg
               class="h-5 w-5 fill-current"
               xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +216,7 @@ onMounted(() => {
             >
               <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
             </svg>
-          </div>
+          </label>
           <div
             tabindex="0"
             class="dropdown-content bg-base-200 text-base-content rounded-box top-px mt-16 w-56 overflow-y-auto shadow"
