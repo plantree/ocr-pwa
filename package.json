@@ -1,6 +1,6 @@
 {
   "name": "ocr-pwa",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx,.vue --fix",
