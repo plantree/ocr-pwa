@@ -65,7 +65,9 @@ onMounted(() => {
               class="dropdown-content menu menu-sm bg-base-200 rounded-box w-36 p-2 shadow"
               data-svelte-h="svelte-vi8k5e"
             >
-              <li><a href="/docs/changelog/">Changelog</a></li>
+              <li>
+                <a href="https://github.com/plantree/ocr-pwa/tree/main/changelogs.md">Changelogs</a>
+              </li>
             </ul>
           </div>
         </div>
