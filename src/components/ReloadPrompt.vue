@@ -43,6 +43,7 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
             type: 'primary',
             onClick: () => {
               updateServiceWorker();
+              notification.destroyAll();
             }
           },
           {
@@ -66,6 +67,7 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
             type: 'primary',
             onClick: () => {
               close();
+              notification.destroyAll();
             }
           },
           {

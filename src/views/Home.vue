@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import { Locale } from '@/enums';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const openGuide = () => {
-  window.open(`https://github.com`);
+  if (locale.value === Locale.ZH_CN) {
+    window.open('https://github.com/plantree/ocr-pwa/blob/main/docs/zh-CN/guide.md');
+  } else {
+    window.open('https://github.com/plantree/ocr-pwa/blob/main/docs/en-US/guide.md');
+  }
 };
 </script>
 
