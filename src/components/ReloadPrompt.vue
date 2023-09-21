@@ -22,7 +22,7 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
       r &&
         setInterval(async () => {
           // eslint-disable-next-line no-console
-          console.log('Checking for sw update');
+          console.log('Checking for sw update at ' + new Date().toLocaleString());
           await r.update();
         }, REFRESH_TIMEOUT);
     } else {
