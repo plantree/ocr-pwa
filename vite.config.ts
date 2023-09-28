@@ -15,7 +15,15 @@ export default defineConfig(() => {
           enabled: true
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+          globPatterns: [
+            '**/*.js',
+            '**/*.html',
+            '**/*.css',
+            '**/*.json',
+            '**/*.svg',
+            '**/*.png',
+            '**/*.txt'
+          ]
         },
         includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
         manifest: {

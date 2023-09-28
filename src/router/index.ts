@@ -1,17 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 
-import Home from '@/views/Home.vue';
-import Ocr from '@/views/Ocr.vue';
-
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    component: Home
+    component: () => import('@/views/Home.vue')
   },
   {
     path: '/ocr',
-    component: Ocr
+    component: () => import('@/views/Ocr.vue')
   },
   // {
   //   path: '/guide/:locale',
