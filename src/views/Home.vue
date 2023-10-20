@@ -26,12 +26,16 @@ const openGuide = () => {
     </div>
 
     <div class="inline-flex w-full flex-col justify-center px-16 py-4 gap-4 md:flex-row">
-      <p class="text-center btn md:btn-wide normal-case">
-        <router-link to="/ocr">{{ t('home.enter') }}</router-link>
-      </p>
-      <p class="text-center btn btn-neutral md:btn-wide normal-case">
-        <a target="_blank" href="/guide" @click.prevent="openGuide">{{ t('home.guide') }}</a>
-      </p>
+      <router-link to="/ocr">
+        <p class="text-center btn md:btn-wide normal-case">
+          {{ t('home.enter') }}
+        </p>
+      </router-link>
+      <a target="_blank" href="/guide" @click.prevent="openGuide">
+        <p class="text-center btn btn-neutral md:btn-wide normal-case">
+          {{ t('home.guide') }}
+        </p>
+      </a>
     </div>
 
     <div class="flex flex-col px-8 gap-4 md:flex-row md:px-32">
