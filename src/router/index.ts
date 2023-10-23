@@ -10,12 +10,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/ocr',
     component: () => import('@/views/Ocr.vue')
   },
-  // {
-  //   path: '/guide/:locale',
-  //   redirect: () => {
-  //     window.location.href = 'https://github.com';
-  //   }
-  // },
   {
     // Not found
     path: '/:pathMatch(.*)*',

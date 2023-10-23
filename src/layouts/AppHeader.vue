@@ -5,6 +5,7 @@ import { onMounted, ref } from 'vue';
 import { Locale } from '@/enums';
 import Favicon from '@/components/icons/Favicon.vue';
 import Github from '@/components/icons/Github.vue';
+import QQ from '@/components/icons/QQ.vue';
 
 const VERSION: string = __VERSION__ as string;
 
@@ -253,6 +254,22 @@ onMounted(() => {
             </ul>
           </div>
         </div>
+        <span
+          class="tooltip tooltip-bottom before:text-xs before:content-[attr(data-tip)]"
+          data-tip="QQ"
+        >
+          <div class="flex-none items-center group relative">
+            <a
+              aria-label="QQ"
+              target="_blank"
+              href="/qrcode.jpeg"
+              rel="noopener, noreferrer"
+              class="btn btn-ghost drawer-button btn-square normal-case"
+            >
+              <QQ />
+            </a>
+          </div>
+        </span>
         <span
           class="tooltip tooltip-bottom before:text-xs before:content-[attr(data-tip)]"
           data-tip="GitHub"
