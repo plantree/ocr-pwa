@@ -262,7 +262,7 @@ onMounted(() => {
             <a
               aria-label="QQ"
               target="_blank"
-              href="/qrcode.jpeg"
+              href="https://raw.githubusercontent.com/plantree/ocr-pwa/f79a5bd8c56be149f5644c2251841e6100057d6a/public/qrcode.jpeg"
               rel="noopener, noreferrer"
               class="btn btn-ghost drawer-button btn-square normal-case"
             >
