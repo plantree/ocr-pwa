@@ -1,4 +1,9 @@
 [[redirects]]
-  from = "/*"
+  from = "/ocr"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/guide"
   to = "/"
   status = 200
