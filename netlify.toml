@@ -1,14 +1,9 @@
 [[redirects]]
-  from = "/ocr"
-  to = "/"
-  status = 200
-
-[[redirects]]
-  from = "/guide"
-  to = "/"
-  status = 200
-
-[[redirects]]
   from = "/qrcode.jpeg"
   to = "/qrcode.jpeg"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/"
   status = 200
