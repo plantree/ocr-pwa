@@ -25,7 +25,7 @@ const openGuide = () => {
       <h2 class="font-title font-bold text-2xl capitalize">{{ t('home.subTitle') }}</h2>
     </div>
 
-    <div class="inline-flex w-full flex-col justify-center px-16 py-4 gap-4 md:flex-row">
+    <div class="inline-flex w-full justify-center px-16 py-4 gap-4 flex-row">
       <router-link to="/ocr">
         <p class="text-center btn md:btn-wide normal-case">
           {{ t('home.enter') }}
