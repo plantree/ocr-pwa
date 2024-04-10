@@ -4,10 +4,12 @@ import { Locale } from '@/enums';
 
 import zhCN from './locales/zh-cn';
 import enUS from './locales/en-us';
+import ruRU from './locales/ru-ru';
 
 const messages = {
   'zh-CN': zhCN,
-  'en-US': enUS
+  'en-US': enUS,
+  'ru-RU': ruRU
 };
 
 const locale = Locale.ZH_CN;

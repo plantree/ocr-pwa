@@ -34,6 +34,7 @@ const prettifiedText = ref('');
 /* OCR engine */
 const tesseract = new TesseractEngine();
 
+/* eslint-disable no-console */ // Отключение правила ESLint no-console
 async function tesseractRecognize(url: string) {
   progressStatus.value = Status.Recognizing;
   try {
@@ -180,7 +181,7 @@ onMounted(async () => {
           @error="loadFailed()"
         />
       </div>
-
+      <!-- eslint-disable -->
       <n-modal v-model:show="isShowModal">
         <n-card
           class="w-4/5 md:w-1/2"
