@@ -1,3 +1,9 @@
+## 0.4.0 (2024-04-11)
+
+Features:
+
+- Support russian (Thanks [@dizkos](https://github.com/dizkos))
+
 ## 0.3.0 (2024-01-12)
 
 Bug Fixes
