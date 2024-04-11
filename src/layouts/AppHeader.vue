@@ -146,8 +146,9 @@ onMounted(() => {
                       </svg>
                     </div>
                   </div>
-                </div></button
-              ><button
+                </div>
+              </button>
+              <button
                 class="outline-base-content overflow-hidden rounded-lg text-left"
                 :class="isDark ? ' [&_svg]:visible' : ''"
                 data-set-theme="dark"
@@ -249,6 +250,19 @@ onMounted(() => {
                     src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.0/svg/1f1ec-1f1e7.svg"
                   />
                   English
+                </button>
+              </li>
+              <li @click="changeLanguage(Locale.RU_RU)">
+                <button :class="useLanguage === Locale.RU_RU ? 'btn-active' : ''">
+                  <img
+                    class="drop-shadow"
+                    loading="lazy"
+                    width="20"
+                    height="20"
+                    alt="Русский"
+                    src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.0/svg/1f1f7-1f1fa.svg"
+                  />
+                  Русский
                 </button>
               </li>
             </ul>

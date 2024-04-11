@@ -19,8 +19,9 @@ const openGuide = () => {
       <h1>
         <span
           class="font-title capitalize font-bold text-2xl bg-gradient-to-r from-green-600 to-blue-400 text-transparent bg-clip-text"
-          >{{ t('home.title') }}</span
         >
+          {{ t('home.title') }}
+        </span>
       </h1>
       <h2 class="font-title font-bold text-2xl capitalize">{{ t('home.subTitle') }}</h2>
     </div>
