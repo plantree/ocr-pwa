@@ -8,13 +8,14 @@ class TesseractEngine extends Engine {
     super('Tesseract');
   }
 
+  /* eslint-disable no-console */
   async init(): Promise<void> {
     this.worker = await createWorker({
       logger: (m) => console.log(m)
     });
     /** You can load more languages in advance, but use only part of them in Worker.initialize() */
-    await this.worker.loadLanguage('eng+chi_sim');
-    await this.worker.initialize('eng+chi_sim');
+    await this.worker.loadLanguage('eng+chi_sim+rus');
+    await this.worker.initialize('eng+chi_sim+rus');
   }
 
   async recognize(imageUrl: string): Promise<string> {
